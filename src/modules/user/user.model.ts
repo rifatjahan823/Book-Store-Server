@@ -4,15 +4,15 @@ import { IUser, UserModel } from './user.interface'
 // 2. Create a Schema corresponding to the document interface.
 const userSchema = new Schema<IUser, UserModel>(
   {
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: 0 },
-    needsPasswordChange: { type: Boolean, default: true },
     name: {
       type: {
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
       },
     },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, select: 0 },
+    needsPasswordChange: { type: Boolean, default: true },
   },
   {
     timestamps: true,
