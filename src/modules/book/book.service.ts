@@ -68,7 +68,6 @@ const getAllBooks = async (
   }
 }
 
-
 // ----------------GetSingleBook------------
 const getSingleBook = async (_id: string): Promise<IBook | null> => {
   const result = await Book.findById(_id)
@@ -87,17 +86,15 @@ const updateBook = async (_id: string, payload: Partial<IBook>) => {
 }
 
 // ---------Delete a Book----------
-const deleteBook = async (id: string): Promise<ICow | null> => {
-  const result = Cow.findOneAndDelete({ _id: id })
-  return result
-}
-
-
+// const deleteBook = async (id: string): Promise<ICow | null> => {
+//   const result = Cow.findOneAndDelete({ _id: id })
+//   return result
+// }
 
 export const bookService = {
   createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
-  deleteBook
+
 }
