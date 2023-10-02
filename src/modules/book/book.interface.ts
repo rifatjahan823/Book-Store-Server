@@ -9,3 +9,9 @@ export interface IBook {
 
 // Create a new Model type that knows about IUserMethods...
 export type BookModel = Model<IBook, Record<string, unknown>>
+
+export type IBooksFilters = {
+  searchTerm?: string;
+  genre: string;
+  publicationDate: Date
+}
