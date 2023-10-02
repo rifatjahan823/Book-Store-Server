@@ -8,8 +8,6 @@ const allRouter = [
     path: '/auth',
     router: authRouter.router,
   },
-
-
 ]
 
 allRouter.forEach(route => router.use(route.path, route.router))

@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //-------**********---------
-app.use('/api/v1',router)
+app.use('/api/v1', router)
 
 //globalError
 app.use(globalErrorHandaler)
