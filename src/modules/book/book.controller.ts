@@ -46,7 +46,6 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   })
 })
 
-
 //----------------update Book------------------
 
 const updateBook = catchAsync(async (req: Request, res: Response) => {
@@ -62,8 +61,17 @@ const updateBook = catchAsync(async (req: Request, res: Response) => {
 })
 
 
-
-
+// ---------Delete a Book----------
+const deleteBook = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id
+  const result = await bookService.deleteBook(id)
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'book deleted successfully',
+    data: result,
+  })
+})
 
 
 
@@ -72,5 +80,6 @@ export const bookController = {
   createBook,
   getAllBooks,
   getSingleBook,
-  updateBook
+  updateBook,
+  deleteBook
 }

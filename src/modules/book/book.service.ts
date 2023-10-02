@@ -86,15 +86,15 @@ const updateBook = async (_id: string, payload: Partial<IBook>) => {
 }
 
 // ---------Delete a Book----------
-// const deleteBook = async (id: string): Promise<ICow | null> => {
-//   const result = Cow.findOneAndDelete({ _id: id })
-//   return result
-// }
+const deleteBook = async (_id: string): Promise<IBook | null> => {
+  const result = Book.findByIdAndDelete(_id)
+  return result
+}
 
 export const bookService = {
   createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
-
+  deleteBook
 }
