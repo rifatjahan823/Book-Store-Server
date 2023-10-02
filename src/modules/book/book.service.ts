@@ -12,7 +12,6 @@ const createBook = async (payload: IBook): Promise<IBook | null> => {
   return result
 }
 
-
 // --------------getAllBook--------------
 const getAllBooks = async (
   filters: IBooksFilters,
@@ -70,11 +69,35 @@ const getAllBooks = async (
 }
 
 
+// ----------------GetSingleBook------------
+const getSingleBook = async (_id: string): Promise<IBook | null> => {
+  const result = await Book.findById(_id)
+  return result
+}
 
+//----------------update Book------------------
+const updateBook = async (_id: string, payload: Partial<IBook>) => {
+  const { ...userData } = payload
+  const updateUserData: Partial<IBook> = { ...userData }
+
+  const result = await Book.findByIdAndUpdate({ _id }, updateUserData, {
+    new: true,
+  })
+  return result
+}
+
+// ---------Delete a Book----------
+const deleteBook = async (id: string): Promise<ICow | null> => {
+  const result = Cow.findOneAndDelete({ _id: id })
+  return result
+}
 
 
 
 export const bookService = {
   createBook,
-  getAllBooks
+  getAllBooks,
+  getSingleBook,
+  updateBook,
+  deleteBook
 }

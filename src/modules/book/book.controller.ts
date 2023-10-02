@@ -8,7 +8,6 @@ import { pick } from '../../shared/pick'
 import { bookFilterableFields } from './constance'
 import { paginationFiled } from '../../constance/paginationField'
 
-
 // ----------create-book---------
 const createBook = catchAsync(async (req: Request, res: Response) => {
   const { ...bookData } = req.body
@@ -20,7 +19,6 @@ const createBook = catchAsync(async (req: Request, res: Response) => {
     data: result,
   })
 })
-
 
 // ---------------getallbook------------
 const getAllBooks = catchAsync(async (req: Request, res: Response) => {
@@ -37,8 +35,23 @@ const getAllBooks = catchAsync(async (req: Request, res: Response) => {
 })
 
 
+// ----------------GetSingleBook------------
+const getSingleBook = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id
+  const result = await bookService.getSingleBook(id)
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Book retrieved successfully',
+    data: result,
+  })
+})
+
+
+
 
 export const bookController = {
   createBook,
-  getAllBooks
+  getAllBooks,
+  getSingleBook
 }

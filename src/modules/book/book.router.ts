@@ -4,7 +4,9 @@ const router = express.Router()
 
 router.post('/create-book', bookController.createBook)
 
-router.post('/', bookController.getAllBooks)
+router.get('/', bookController.getAllBooks)
+
+router.get('/:id', bookController.getSingleBook)
 
 export const bookRouter = {
   router,
