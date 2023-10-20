@@ -60,7 +60,6 @@ const updateBook = catchAsync(async (req: Request, res: Response) => {
   })
 })
 
-
 // ---------Delete a Book----------
 const deleteBook = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id
@@ -73,13 +72,10 @@ const deleteBook = catchAsync(async (req: Request, res: Response) => {
   })
 })
 
-
-
-
 export const bookController = {
   createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
-  deleteBook
+  deleteBook,
 }

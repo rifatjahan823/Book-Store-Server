@@ -96,5 +96,5 @@ export const bookService = {
   getAllBooks,
   getSingleBook,
   updateBook,
-  deleteBook
+  deleteBook,
 }

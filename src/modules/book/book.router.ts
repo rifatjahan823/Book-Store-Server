@@ -4,9 +4,17 @@ import validateRequests from '../../middleware/validateRequest'
 import { createBookZodSchema, updateBookZodSchema } from './book.validation'
 const router = express.Router()
 
-router.post('/create-book',validateRequests(createBookZodSchema), bookController.createBook)
+router.post(
+  '/create-book',
+  validateRequests(createBookZodSchema),
+  bookController.createBook,
+)
 
-router.patch('/:id',validateRequests(updateBookZodSchema),bookController.updateBook)
+router.patch(
+  '/:id',
+  validateRequests(updateBookZodSchema),
+  bookController.updateBook,
+)
 
 router.get('/', bookController.getAllBooks)
 

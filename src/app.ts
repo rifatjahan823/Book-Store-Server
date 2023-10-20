@@ -13,22 +13,19 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //-------**********---------
-app.use('/api/v1',router)
+app.use('/api/v1', router)
 
 //globalError
 app.use(globalErrorHandaler)
 
-
-
 //notfound route-----------
 app.use((req: Request, res: Response, next: NextFunction) => {
-    res.status(httpStatus.NOT_FOUND).json({
-      success: false,
-      message: 'Not found',
-      errorMessage: [{ path: req.originalUrl, message: 'Api Not Found' }],
-    })
-    next()
+  res.status(httpStatus.NOT_FOUND).json({
+    success: false,
+    message: 'Not found',
+    errorMessage: [{ path: req.originalUrl, message: 'Api Not Found' }],
   })
-    
+  next()
+})
 
 export default app
